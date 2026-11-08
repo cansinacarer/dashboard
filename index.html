@@ -29,7 +29,6 @@
 					Arial, sans-serif;
 			}
 			main {
-				max-width: 1400px;
 				margin: 0 auto;
 				padding: var(--gap);
 				display: grid;
@@ -45,7 +44,7 @@
 			}
 			.row.videos,
 			.row.maps {
-				grid-template-columns: 1fr 1fr;
+				grid-template-columns: repeat(3, 1fr);
 			}
 
 			.card {
@@ -119,10 +118,31 @@
 						loading="lazy"
 					></iframe>
 				</div>
+				<div class="card h-map">
+					<iframe
+						src="https://www.marinetraffic.com/en/ais/embed/zoom:10/centery:37.374649/centerx:-122.032811/maptype:0/shownames:false/mmsi:0/shipid:0/fleet:/fleet_id:/vtypes:/showmenu:false/remember:false"
+						title="MarineTraffic"
+						loading="lazy"
+					></iframe>
+				</div>
 			</section>
 
 			<!-- YouTube live streams (autoplay muted) -->
 			<section class="row videos">
+				<div class="card video">
+					<iframe
+						src="https://www.youtube.com/embed/iQ7XJDXYSMo?autoplay=1&mute=1"
+						title="YouTube stream 3"
+						loading="lazy"
+						allow="
+							autoplay;
+							encrypted-media;
+							picture-in-picture;
+							fullscreen;
+						"
+						allowfullscreen
+					></iframe>
+				</div>
 				<div class="card video">
 					<iframe
 						src="https://www.youtube.com/embed/_-_hg_aJrKU?autoplay=1&mute=1"
