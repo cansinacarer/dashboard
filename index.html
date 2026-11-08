@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>🏠 Dashboard</title>
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>"
+		/>
+		<style>
+			:root {
+				--bg: #191919;
+				--card: #202020;
+				--border: #2f2f2f;
+				--text: #e6e6e6;
+				--gap: 12px;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			html,
+			body {
+				margin: 0;
+				background: var(--bg);
+				color: var(--text);
+				font-family:
+					-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+					Arial, sans-serif;
+			}
+			main {
+				max-width: 1400px;
+				margin: 0 auto;
+				padding: var(--gap);
+				display: grid;
+				gap: var(--gap);
+			}
+			.row {
+				display: grid;
+				gap: var(--gap);
+			}
+			/* Clock / weather split mirrors the Notion column ratio (18.75% / 81.25%) */
+			.row.top {
+				grid-template-columns: 18.75fr 81.25fr;
+			}
+			.row.videos,
+			.row.maps {
+				grid-template-columns: 1fr 1fr;
+			}
+
+			.card {
+				background: var(--card);
+				border: 1px solid var(--border);
+				border-radius: 10px;
+				overflow: hidden;
+				position: relative;
+			}
+			.card iframe {
+				display: block;
+				width: 100%;
+				height: 100%;
+				border: 0;
+			}
+			.h-widget {
+				height: 200px;
+			}
+			.h-map {
+				height: 520px;
+			}
+			.video {
+				aspect-ratio: 16 / 9;
+			}
+
+			@media (max-width: 800px) {
+				.row.top,
+				.row.videos,
+				.row.maps {
+					grid-template-columns: 1fr;
+				}
+				.h-map {
+					height: 420px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<!-- Clock + Weather -->
+			<section class="row top">
+				<div class="card h-widget">
+					<iframe
+						src="https://indify.co/widgets/live/clock/xvf5gU7QbDKRcUpEqS9T"
+						title="Clock"
+						loading="eager"
+					></iframe>
+				</div>
+				<div class="card h-widget">
+					<iframe
+						src="https://indify.co/widgets/live/weather/vwm2v5FqNitQmW1g22e6"
+						title="Weather"
+						loading="eager"
+					></iframe>
+				</div>
+			</section>
+
+			<!-- Windy wind map + AirNav Radar flight tracker -->
+			<section class="row maps">
+				<div class="card h-map">
+					<iframe
+						src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=%C2%B0C&metricWind=kt&zoom=10&overlay=wind&product=ecmwf&level=surface&lat=37.374649&lon=-122.032811&detailLat=37.299493&detailLon=-122.406312&marker=true&message=true"
+						title="Windy wind map"
+						loading="lazy"
+					></iframe>
+				</div>
+				<div class="card h-map">
+					<iframe
+						src="https://www.airnavradar.com/?widget=1&z=9.0153278510379&lat=37.374649&lng=-122.032811"
+						title="AirNav Radar"
+						loading="lazy"
+					></iframe>
+				</div>
+			</section>
+
+			<!-- YouTube live streams (autoplay muted) -->
+			<section class="row videos">
+				<div class="card video">
+					<iframe
+						src="https://www.youtube.com/embed/_-_hg_aJrKU?autoplay=1&mute=1"
+						title="YouTube stream 1"
+						loading="lazy"
+						allow="
+							autoplay;
+							encrypted-media;
+							picture-in-picture;
+							fullscreen;
+						"
+						allowfullscreen
+					></iframe>
+				</div>
+				<div class="card video">
+					<iframe
+						src="https://www.youtube.com/embed/lmec_rcEIL4?autoplay=1&mute=1"
+						title="YouTube stream 2"
+						loading="lazy"
+						allow="
+							autoplay;
+							encrypted-media;
+							picture-in-picture;
+							fullscreen;
+						"
+						allowfullscreen
+					></iframe>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>
